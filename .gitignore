@@ -5,6 +5,8 @@
 /.github
 /.pnp
 .pnp.js
+/.vscode
+/.metals
 
 # testing
 /coverage
