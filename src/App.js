@@ -1,10 +1,14 @@
 import React from 'react';
-import './assets/main.css';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
   return (
-   <div>
+   <div className="bg-primary">
+   <Navigation/>
      we will be adding component here
+     home page
+     abouts 
+     {/* <Footer /> */}
    </div>
   );
 }
