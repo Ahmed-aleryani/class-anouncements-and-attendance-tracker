@@ -19,9 +19,23 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
+// [4:31 PM, 12/3/2020] Doaa Althawr: #1e6262
+// [4:31 PM, 12/3/2020] Doaa Althawr: #2d767f
+// [4:31 PM, 12/3/2020] Doaa Althawr: #b4f1f1
+// [4:31 PM, 12/3/2020] Doaa Althawr: #ecfffb
+
+// [10:30 AM, 12/4/2020] Doaa Althawr: #2d767f #b4f1f1
       black: '#000',
       white: '#fff',
-      primary: "#ff0",
+      secondary:{
+        100:'#1e6262',
+        200:'#ecfffb',
+
+      },
+      primary: {
+        100:'#2d767f',
+        200:'#b4f1f1'
+      },
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
