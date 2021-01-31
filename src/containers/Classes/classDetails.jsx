@@ -6,6 +6,7 @@ import AddAnnouncement from "../Announcement/AddAnnouncement";
 import firebase from "../../firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import ChatRoom from '../Announcement/ChatRoom';
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -79,6 +80,16 @@ const ClassDetails = (Props) => {
               announcements.map((announcement) => <Card posts={announcement} />)
               : ""}
           </div>
+          <div className="flex flex-col justify-center items-center">
+          <h2 className="text-2xl text-white bg-primary-100 rounded-full p-4">General Class Discussion Board</h2>
+          <br/>
+          {user ? (
+          <ChatRoom {...Props} user={user} auth={auth} roomType="ClassDiscussions" topicID={classID} />
+        ) : (
+          <SignInRequired />
+        )}
+          </div>
+          
         </div>
       </div>
     </section>
@@ -109,13 +120,20 @@ const Card = (Props) => {
         </div>
         <div className="pt-4 pl-4 pr-4 rounded-lg flex items-center justify-center">
           <Link
-            to={"/AnnouncementDetails/" +Props.posts.annID+"&"+Props.posts.title+"&"+Props.posts.body}
+            to={"/AnnouncementDetails/" +Props.posts.annID+"&"+Props.posts.title+"&"+Props.posts.body+"&AnDiscussions"}
             className="flex items-center mt-auto text-primary-100 bg-secondary-200 text-center border-0 py-2 px-4 focus:outline-none hover:bg-primary-200 rounded-xl shadow-xl"
           >
             Discussions
           </Link>
         </div>
       </div>
+    </div>
+  );
+};
+const SignInRequired = () => {
+  return (
+    <div>
+      <h1 className="text-white text-4xl">You have to sign in first!</h1>
     </div>
   );
 };

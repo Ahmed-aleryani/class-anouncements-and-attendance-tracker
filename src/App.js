@@ -21,7 +21,7 @@ function App() {
         <Route path="/classes/:classID&:className&:ownerID" render={(props)=>
           <ClassDetails {...props}/>
         }/> 
-         <Route path="/AnnouncementDetails/:annID&:title&:body" render={(props)=>
+         <Route path="/AnnouncementDetails/:annID&:title&:body&:chatType" render={(props)=>
           <AnnouncementDetails {...props}/>
         }/>
         <Route path="/classes"><Classes/></Route>

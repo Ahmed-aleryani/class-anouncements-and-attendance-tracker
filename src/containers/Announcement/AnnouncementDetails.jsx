@@ -18,7 +18,7 @@ const AnnouncementDetails = (Props) => {
         </div>
         <hr/>
         {user ? (
-          <ChatRoom {...Props} user={user} auth={auth} roomType="AnDiscussions" topicID={Props.match.params.annID} />
+          <ChatRoom {...Props} user={user} auth={auth} roomType={Props.match.params.chatType} topicID={Props.match.params.annID} />
         ) : (
           <SignInRequired />
         )}
