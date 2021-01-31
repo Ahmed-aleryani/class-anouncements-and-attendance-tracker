@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ClassesBg from "../../images/announcementsBG.jpg";
 import Add from "@material-ui/icons/Add";
@@ -14,8 +14,6 @@ const firestore = firebase.firestore();
 
 const ClassDetails = (Props) => {
 
-  // console.log(Props.match);
-
   const {classID, className,ownerID} = Props.match.params;
   const [user] = useAuthState(auth);
   const annRef = firestore
@@ -26,13 +24,7 @@ const ClassDetails = (Props) => {
   const query = annRef.orderBy("datePosted", "asc").limitToLast(100);
   
   const [announcements] = useCollectionData(query, { idField: "id" });
-  // console.log(classes)
 
-  const [formVisible, setFormVisible] = useState(false);
-
-  useEffect(() => {
-  
-  }, [])
   return (
     <section
       className="relative text-gray-600 body-font overflow-hidden bg-fixed bg-no-repeat bg-cover"
@@ -43,7 +35,7 @@ const ClassDetails = (Props) => {
       </div>
   
       <div className="relative w-full">
-        {user&&user.uid==ownerID ? (
+        {user&&user.uid===ownerID ? (
           <div className="fixed right-0 bottom-0 mb-2 p-4 z-10">
             <Link
               to={"/addAnnouncement/"+classID}

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,8 +8,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import Add from '@material-ui/icons/Add';
 import firebase from "../../firebase.config";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -19,7 +17,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const AddClassForm=(Props)=> {
-
 
   const classObj={
     newClassName:"",
@@ -47,7 +44,7 @@ const classFormSubmit=async (event)=>{
     alert("Class name and Description can not be empty!");
     return;
   }
-  const { displayName, uid, photoURL } = auth.currentUser;
+  const { displayName, uid } = auth.currentUser;
 
 
  await classRef.set(

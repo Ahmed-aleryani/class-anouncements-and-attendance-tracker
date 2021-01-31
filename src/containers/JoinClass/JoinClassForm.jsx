@@ -1,9 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import firebase from '../../firebase.config';
 import GroupAdd from '@material-ui/icons/GroupAdd'
 
-const auth = firebase.auth();
 const firestore=firebase.firestore();
 
 const JoinClassForm=(Props)=>{
@@ -34,7 +33,7 @@ const JoinClassForm=(Props)=>{
             studentsIDs:[...result.data().studentsIDs,Props.user.uid]
         },{ merge: true })
         alert("You have joined "+result.data().newClassName+" class successfully :D");
-        // path.replace("/classes/"+Props.user.uid+"/")
+        path.replace("/classes/"+Props.user.uid+"/")
     }else{
         alert("You are already a member of this class!");
     }
@@ -42,10 +41,6 @@ const JoinClassForm=(Props)=>{
            alert("Class Code is wrong or class does not exist!");
        }
       });
- 
-      const { displayName, uid, photoURL } = auth.currentUser;
-
-      
     }
     
 return(

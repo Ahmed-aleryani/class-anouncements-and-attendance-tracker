@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,11 +8,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import Add from '@material-ui/icons/Add';
 import firebase from "../../firebase.config";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from 'react-firebase-hooks/firestore';
 import {useHistory} from 'react-router-dom';
 
-const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -50,9 +47,7 @@ const classFormSubmit=async (event)=>{
     alert("Class name and Description can not be empty!");
     return;
   }
-  const { displayName, uid, photoURL } = auth.currentUser;
 
-// console.log(newAnnObj)
  try{
     await annRef.set(
         {body:newAnnObj.body,
@@ -63,12 +58,11 @@ const classFormSubmit=async (event)=>{
       )
     
  }catch(ex){
-    // console.log(ex.message())
  }
     
   alert("Announcement Added Successfully!");
   setNewAnnObj(annObj);
-//   handleClose();
+  handleClose();
   
 }
 
