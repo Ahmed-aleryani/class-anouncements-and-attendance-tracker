@@ -5,6 +5,8 @@ import Footer from "./components/Footer/Footer";
 import Home from './containers/Home/Home';
 import AboutUs from './containers/AboutUs/AboutUs';
 import Classes from './containers/Classes/Classes';
+import ClassDetails from './containers/Classes/classDetails';
+import AnnouncementDetails from './containers/Announcement/AnnouncementDetails';
 
 function App() {
 
@@ -16,6 +18,12 @@ function App() {
      <Switch>
         <Route path="/contact-us">Contact us</Route>
         {/* <Route path="/announcements"><Announcement name="ahmed"/></Route> */}
+        <Route path="/classes/:classID&:className&:ownerID" render={(props)=>
+          <ClassDetails {...props}/>
+        }/> 
+         <Route path="/AnnouncementDetails/:annID&:title&:body" render={(props)=>
+          <AnnouncementDetails {...props}/>
+        }/>
         <Route path="/classes"><Classes/></Route>
         <Route path="/about-us"><AboutUs/></Route>
        <Route path="/">

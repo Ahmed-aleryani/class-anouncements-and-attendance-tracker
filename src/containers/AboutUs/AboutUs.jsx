@@ -19,12 +19,12 @@ const AboutUs=(Props)=>{
            
             <div className="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-10 transform rotate-3 bg-secondary-100 text-white rounded-lg p-4 shadow-lg mb-6">
                 <h2 className="text-center text-2xl">1. Sign-in <Person className="text-white"/></h2>
-                <p className="text-justify">
+           
                     <ul className="list-disc">
                     <li className="text-justify">Create an account with us using easy method of Google Sign-in.</li>
                     <li>Or just Sign-in if you already have an account.</li>
                     </ul>
-                </p>
+               
             </div>
                        
             <div className="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-10 transform -rotate-6 bg-white rounded-lg p-4 shadow-lg mb-6">
