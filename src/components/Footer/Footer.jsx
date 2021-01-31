@@ -14,7 +14,7 @@ const Footer = ()=>{
       {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
       <Link to="/" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">Home</Link>
       <Link to="/about-us" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">About-Us</Link>
-      <Link to="/contact-us" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">Contact-Us</Link>
+      <Link to="/join-class" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">Join Class</Link>
       <Link to="/classes" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">Classes</Link>
       {/* <Link to="/announcements" className="text-white hover:shadow-outline block px-3 py-2 rounded-md text-base font-medium">Announcements</Link> */}
     </div>

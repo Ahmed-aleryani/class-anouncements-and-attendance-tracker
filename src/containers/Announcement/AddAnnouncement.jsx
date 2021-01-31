@@ -10,6 +10,7 @@ import Add from '@material-ui/icons/Add';
 import firebase from "../../firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import {useHistory} from 'react-router-dom';
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -19,7 +20,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const AddAnnouncement=(Props)=> {
-
+const path = useHistory();
+// console.log(Props)
+const classID=Props.match.params.classID;
   const annObj={
     body:"",
     annID:"",
@@ -28,7 +31,7 @@ const AddAnnouncement=(Props)=> {
 };
 const [newAnnObj,setNewAnnObj]=useState(annObj);
   const handleClose = () => {
-    Props.setFormVisible(false);
+    path.goBack();
   };
 const handleChange=(event)=>{
     const name=event.target.name;
@@ -39,8 +42,8 @@ const handleChange=(event)=>{
 
 const classFormSubmit=async (event)=>{
   event.preventDefault();
-//   const annRef = firestore.collection('Classes').doc(Props.classID).collection("Announcements");
-    const annRef=Props.annRef.doc();
+  const annRef = firestore.collection('Classes').doc(classID).collection("Announcements").doc();
+
   const annId=annRef.id;
 //   console.log(annID)
   if(newAnnObj.body===""||newAnnObj.title===""){
@@ -58,18 +61,20 @@ const classFormSubmit=async (event)=>{
           annID:annId
           }
       )
+    
  }catch(ex){
-
+    // console.log(ex.message())
  }
-  handleClose();
+    
   alert("Announcement Added Successfully!");
   setNewAnnObj(annObj);
+//   handleClose();
   
 }
 
   return (
     <div>
-      <Dialog fullScreen open={Props.formVisible?true:false} onClose={handleClose} TransitionComponent={Transition}>
+      <Dialog fullScreen open={true} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className="relative">
           <Toolbar className="bg-primary-100">
             <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">

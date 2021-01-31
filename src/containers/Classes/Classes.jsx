@@ -11,17 +11,17 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 const Classes = (Props) => {
-
-  const classRef = firestore.collection('Classes');
   const [user] = useAuthState(auth);
+  const path=useHistory();
+  if(user===null){
+    path.goBack();
+  }
+
+    const classRef = firestore.collection('Classes');
 
 
-
-  const query = classRef.orderBy('dateClassCreated', 'asc').limitToLast(100);
-
+  const query = classRef.where("studentsIDs","array-contains",Props.match.params.uid);
   const [classes] = useCollectionData(query, {idField: 'id'});
-
-  
 
   // console.log(classes)
 

@@ -2,7 +2,6 @@ import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClassesBg from "../../images/announcementsBG.jpg";
 import Add from "@material-ui/icons/Add";
-import AddAnnouncement from "../Announcement/AddAnnouncement";
 import firebase from "../../firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -42,26 +41,17 @@ const ClassDetails = (Props) => {
       <div className="absolute bg-secondary-100 opacity-50 h-full w-full z-0">
         {/* this is the overlay */}
       </div>
-      <AddAnnouncement
-        setFormVisible={setFormVisible}
-        formVisible={formVisible}
-        user={user}
-        classID={classID}
-        annRef={annRef}
-      />
-
+  
       <div className="relative w-full">
-        {user ? (
+        {user&&user.uid==ownerID ? (
           <div className="fixed right-0 bottom-0 mb-2 p-4 z-10">
-            <button
-              onClick={() => {
-                setFormVisible(true);
-              }}
+            <Link
+              to={"/addAnnouncement/"+classID}
               id="btnAddClass"
               className="bg-secondary-200 hover:bg-primary-100 hover:text-white transition duration-300 ease-in-out rounded-full p-4"
             >
               Add Announcement <Add />
-            </button>
+            </Link>
           </div>
         ) : (
           ""
@@ -104,7 +94,7 @@ const Card = (Props) => {
       <div className="bg-secondary-100 h-64 rounded-lg mb-6 flex flex-col relative overflow-hidden shadow-xl">
         <span className="bg-primary-100 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">
           {(()=>{
-            if(Props.posts.datePosted.seconds!=null)
+            if(Props.posts.datePosted!==null)
               return formatter.format(new Date(Props.posts.datePosted.seconds*1000))
           })()}
         </span>

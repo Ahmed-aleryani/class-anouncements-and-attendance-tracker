@@ -60,6 +60,7 @@ const classFormSubmit=async (event)=>{
       }
   )
   handleClose();
+  setNewClassObj(classObj);
   alert("Class Added Successfully!");
   
 }
