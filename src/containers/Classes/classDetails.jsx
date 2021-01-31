@@ -23,7 +23,7 @@ const ClassDetails = (Props) => {
   .doc(classID)
   .collection("Announcements");
   
-  const query = annRef.orderBy("datePosted", "dsc").limitToLast(100);
+  const query = annRef.orderBy("datePosted", "asc").limitToLast(100);
   
   const [announcements] = useCollectionData(query, { idField: "id" });
   // console.log(classes)
