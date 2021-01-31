@@ -8,6 +8,7 @@ import Classes from './containers/Classes/Classes';
 import ClassDetails from './containers/Classes/classDetails';
 import AnnouncementDetails from './containers/Announcement/AnnouncementDetails';
 import AddAnnouncement from './containers/Announcement/AddAnnouncement';
+import JoinClass from './containers/JoinClass/JoinClass';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
       
      {/* <Footer /> */}
      <Switch>
-        <Route path="/join-class">join-class</Route>
+        <Route path="/join-class"><JoinClass/></Route>
         {/* <Route path="/announcements"><Announcement name="ahmed"/></Route> */}
         <Route path="/classes/:classID&:className&:ownerID" render={(props)=>
           <ClassDetails {...props}/>

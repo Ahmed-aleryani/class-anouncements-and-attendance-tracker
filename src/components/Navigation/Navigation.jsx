@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 import firebase from "../../firebase.config";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ExitToApp from '@material-ui/icons/ExitToApp'
@@ -19,6 +19,8 @@ import googleImg from '../../images/G-Sign.png';
 // [10:30 AM, 12/4/2020] Doaa Althawr: نقدر نخليهم اساسي
 
 const Navigation=(Props)=>{
+  const path=useHistory();
+
   const auth = firebase.auth();
   const [user] = useAuthState(auth); 
   
@@ -29,7 +31,8 @@ const Navigation=(Props)=>{
   const SignOut=()=>{
     return auth.currentUser && (
       <div className="w-full">
-        <button className="text-white w-40 h-12 hover:bg-white hover:text-primary-100 rounded-3xl" onClick={() => auth.signOut()}>Sign Out <ExitToApp/></button>
+        <button className="text-white w-40 h-12 hover:bg-white hover:text-primary-100 rounded-3xl" onClick={() => {auth.signOut();
+        path.replace("/")}}>Sign Out <ExitToApp/></button>
       </div>
     )
   }
