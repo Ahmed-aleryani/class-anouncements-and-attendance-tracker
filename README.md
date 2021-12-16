@@ -1,6 +1,9 @@
 # Class Announcements and Attendance Tracker (CAAT)
 
 - This project was something I created to help a friend translate her analysis into a working project as a poc, so that it enhances and supports the theoretical part of her project.
+- Tutors can come to the app, create an account using google sign-in, then they can create class and share class code with their students to join.
+- Only class owner can share announcements.
+- All participants can view and join discussions either in class or in the annoucnemnt level
   
 - - -
 
