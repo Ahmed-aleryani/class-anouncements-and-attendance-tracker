@@ -7,7 +7,6 @@ import Send from '@material-ui/icons/Send'
 const firestore = firebase.firestore();
 
 const ChatRoom = ({Props,auth,roomType,topicID})=> {
-    // console.log(Props);
   const dummy = useRef();
   const messagesRef = firestore.collection('Discussions').doc(roomType).collection(topicID);
   const query = messagesRef.orderBy('createdAt', 'asc').limitToLast(100);

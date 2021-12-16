@@ -18,7 +18,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const AddAnnouncement=(Props)=> {
 const path = useHistory();
-// console.log(Props)
 const classID=Props.match.params.classID;
   const annObj={
     body:"",
@@ -33,7 +32,6 @@ const [newAnnObj,setNewAnnObj]=useState(annObj);
 const handleChange=(event)=>{
     const name=event.target.name;
     const value=event.target.value;
-    // console.log(name,value)
     setNewAnnObj({...newAnnObj,[name]:value})
 }
 

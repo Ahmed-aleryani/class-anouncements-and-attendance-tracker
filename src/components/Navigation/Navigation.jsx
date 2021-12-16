@@ -4,19 +4,6 @@ import firebase from "../../firebase.config";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ExitToApp from '@material-ui/icons/ExitToApp'
 import googleImg from '../../images/G-Sign.png';
-//home page
-//classes - after sign-in
-//announcements - after sign-in
-//about-us - brief description about the website
-//contact-us
-
-// [4:31 PM, 12/3/2020] Doaa Althawr: #1e6262
-// [4:31 PM, 12/3/2020] Doaa Althawr: #2d767f
-// [4:31 PM, 12/3/2020] Doaa Althawr: #b4f1f1
-// [4:31 PM, 12/3/2020] Doaa Althawr: #ecfffb
-
-// [10:30 AM, 12/4/2020] Doaa Althawr: #2d767f #b4f1f1
-// [10:30 AM, 12/4/2020] Doaa Althawr: نقدر نخليهم اساسي
 
 const Navigation=(Props)=>{
   const path=useHistory();
@@ -39,7 +26,6 @@ const Navigation=(Props)=>{
 
 
     return(
-        // <!-- This example requires Tailwind CSS v2.0+ -->
 <nav className="bg-primary-100">
   <div className="w-4/5 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div className="flex items-center justify-between h-16">
