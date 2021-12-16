@@ -4,6 +4,7 @@
 - Tutors can come to the app, create an account using google sign-in, then they can create class and share class code with their students to join.
 - Only class owner can share announcements.
 - All participants can view and join discussions either in class or in the annoucnemnt level
+- I didn't have any UX design just ideas and went a head and translated them 😅
   
 - - -
 
