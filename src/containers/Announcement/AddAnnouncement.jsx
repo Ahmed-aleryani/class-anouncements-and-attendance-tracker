@@ -85,7 +85,7 @@ const classFormSubmit=async (event)=>{
     classOwnerName:"",
     classDescription:"", */}
             <fieldset className="border-2 border-primary-100 w-4/5 text-center p-4">
-            <legend className="text-2xl text-secondary-100">Add new class</legend>
+            <legend className="text-2xl text-secondary-100">Add new Announcement</legend>
             <form className="w-4/5 mx-auto text-left" onSubmit={classFormSubmit}>
                 <label className="text-xl text-primary-100 w-1/5">Title: </label>
                 <input name="title" onChange={handleChange} value={newAnnObj.title} type="text" placeholder="Enter Announcement Title..." className="border-2 rounded-lg py-2 pl-2 border-primary-200 focus:outline-none focus:border-primary-100 w-4/5"/>
